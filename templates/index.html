@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduBot</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>EduBot</h1>
+        <form id="chat-form">
+            <input type="text" id="message" name="message" placeholder="Enter your message" required>
+            <button type="submit">Send</button>
+        </form>
+        <div id="chat-box"></div>
+    </div>
+
+    <script>
+        document.getElementById('chat-form').addEventListener('submit', async function(event) {
+            event.preventDefault();
+            const message = document.getElementById('message').value;
+
+            const response = await fetch('/chat', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: new URLSearchParams({
+                    'message': message
+                })
+            });
+
+            const result = await response.json();
+            const chatBox = document.getElementById('chat-box');
+            if (result.reply) {
+                chatBox.innerHTML += `<p><strong>You:</strong> ${message}</p>`;
+                chatBox.innerHTML += `<p><strong>ChatGPT:</strong> ${result.reply}</p>`;
+            } else {
+                chatBox.innerHTML += `<p>Error: ${result.error}</p>`;
+            }
+
+            document.getElementById('message').value = '';
+        });
+    </script>
+</body>
+</html>
