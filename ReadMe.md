@@ -5,12 +5,14 @@
 This project is a simple web application built with Flask that allows users to interact with the OpenAI API through a web interface. Users can send messages and receive responses from the OpenAI model.
 
 ## Features
+
 - Simple web interface for chat interactions.
 - Uses the OpenAI GPT-4 model to generate responses.
 - Flask backend to handle API requests and responses.
 - HTML, CSS, and JavaScript for the frontend.
 
 ## Prerequisites
+
 - Python 3.x
 - Flask
 - OpenAI Python client
@@ -18,6 +20,7 @@ This project is a simple web application built with Flask that allows users to i
 ## Installation
 
 ### Step 1: Clone the Repository
+
 ```bash
 git clone https://github.com/PrinceAsiedu/flask-openai.git
 cd flask-openai
