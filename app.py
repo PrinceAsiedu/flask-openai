@@ -19,7 +19,7 @@ def chat():
 
     try:
         chat_completion = client.chat.completions.create(
-            model="gpt-3.5-turbo-instruct",
+            model="gpt-4",
             messages=[
                 {"role": "system", "content": "You are ChatGPT, a helpful assistant."},
                 {"role": "user", "content": user_input}
