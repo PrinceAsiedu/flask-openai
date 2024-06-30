@@ -1,4 +1,4 @@
-# Flask Openai Client
+# EduBot
 
 ## Requirements
 
